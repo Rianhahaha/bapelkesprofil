@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Install, update, uninstall Requirements functions for the AnimateCSS module.
+ */
+
+define('ANIMATECSS_DOWNLOAD_URL', 'https://github.com/animate-css/animate.css/archive/main.zip');
+
+/**
+ * Implements hook_requirements().
+ */
+function animatecss_requirements($phase) {
+  // Verify AnimateCSS is enabled.
+  if ($phase != 'runtime') {
+    return [];
+  }
+
+  $requirements = [];
+
+  // Check if Animate.css library is installed.
+  /** @var Drupal\Core\Asset\LibraryDiscovery $library_discovery */
+  $library_discovery = \Drupal::service('library.discovery');
+  $library_animate = $library_discovery->getLibraryByName('animatecss', 'animate.css');
+  $library_exists = file_exists(DRUPAL_ROOT . '/' . $library_animate['css'][0]['data']);
+
+  if ($library_exists) {
+    $description = t('The Animate.css library was available in the local libraries path and enabled.');
+  }
+  else {
+    $description = t('AnimateCSS module requires the Animate.css library. Please <a href="@downloadUrl">download</a> and extract into /libraries/animate.css in your Drupal installation directory. Please see the AnimateCSS module README file for more details.', [
+      '@downloadUrl' => ANIMATECSS_DOWNLOAD_URL,
+    ]);
+  }
+
+  $requirements['animatecss'] = [
+    'title'       => t('Animate.css library'),
+    'value'       => $library_exists ? t('Installed') : t('Not installed'),
+    'severity'    => $library_exists ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+    'description' => $description,
+  ];
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_install().
+ */
+function animatecss_install() {
+  // Check for Animate Library.
+  $library = \Drupal::service('library.discovery')->getLibraryByName('animatecss', 'animate.css');
+  $library_exists = file_exists(DRUPAL_ROOT . '/' . $library['css'][0]['data']);
+  if (!$library_exists) {
+    \Drupal::messenger()->addMessage(t('AnimateCSS module requires the Animate.css library. Please <a href=":downloadUrl">Download</a> and unzip into /libraries/animate.css.', [
+      ':downloadUrl' => ANIMATECSS_DOWNLOAD_URL,
+    ]));
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function animatecss_uninstall() {
+  // Delete set variables.
+  $query = \Drupal::database()->delete('config');
+  $query->condition('name', 'animatecss.settings');
+  $query->execute();
+  $query = \Drupal::database()->delete('key_value');
+  $query->condition('name', 'animatecss');
+  $query->execute();
+}

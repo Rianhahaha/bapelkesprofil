@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the EBT Slick Slider module.
+ */
+
+use Drupal\media\Entity\MediaType;
+
+/**
+ * Implements hook_requirements().
+ */
+function ebt_slick_slider_requirements($phase) {
+  if ($phase != 'install') {
+    return [];
+  }
+
+  if (class_exists('Drupal\media\Entity\MediaType')) {
+    foreach (MediaType::loadMultiple() as $type) {
+      if ($type->id() == 'image') {
+        return [];
+      }
+    }
+  }
+
+  return [
+    'ebt_slick_slider_media_type_image' => [
+      'title' => t('Media type Image'),
+      'value' => t('Not created'),
+      'description' => t('The EBT Slick Slider needs to be <a href="@url">created</a> "Image" Media type.', ['@url' => '/admin/structure/media']),
+      'severity' => REQUIREMENT_ERROR,
+    ],
+  ];
+}

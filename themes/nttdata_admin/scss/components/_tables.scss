@@ -1,0 +1,181 @@
+/**
+ * @file
+ * Tables.
+ */
+
+table {
+  background-color: $white;
+  thead {
+    th {
+      color: $text-white;
+      background-color: $primary;
+      &:first-child {
+        border-radius: 5px 0 0 5px;
+      }
+      &:only-child {
+        border-radius: $nttdata-radius;
+      }
+      &:last-child {
+        border-radius: 0 5px 5px 0;
+      }
+      &.sortable-heading {
+        a {
+          &:hover {
+            color: $smart-navy;
+            &:before {
+              border-bottom-width: 0.1875rem;
+              border-bottom-color: $smart-navy;
+            }
+          }
+        }
+        &.is-active {
+          a {
+            color: $smart-navy;
+            &:before {
+              border-bottom: 0.1875rem solid $smart-navy;
+            }
+            .tablesort {
+              filter: invert(80%) sepia(20%) saturate(342%) hue-rotate(-260deg) brightness(23%) contrast(94%);
+            }
+          }
+        }
+      }
+      .form-checkbox {
+        cursor: pointer;
+        &:checked,
+        &[disabled] {
+          border-color: $u-smart-navy;
+          background-color: $u-smart-navy;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      background-color: $white;
+      color: $text-dark;
+      @include transition(0.3s all);
+      border-bottom: 0.0625rem solid $cornflower-blue;
+      &:hover {
+        background-color: $blue-light;
+        color: $text-dark;
+      }
+      &:focus {
+        color: $text-dark;
+      }
+      th {
+        background-color: $white2;
+        color: $text-dark;
+      }
+      td {
+        &.diff-context {
+          color: $text-dark;
+          &:not(.diff-addedline):not(.diff-deletedline) {
+            background-color: $white !important;
+          }
+          &.diff-addedline,
+          &.diff-deletedline {
+            color: $black-pearl;
+          }
+        }
+        &.module-list__module {
+          color: $text-dark;
+          border-bottom: inherit;
+        }
+        .module-list__module-details,
+        .module-list__module-details[open] {
+          background-color: $white;
+          > summary.claro-details__summary {
+            color: $text-dark;
+            background: $white;
+            display: flex;
+            justify-content: space-between;
+            .claro-details__summary-summary {
+              color: $text-dark;
+            }
+            &:before {
+              background-image: $dark-arrow;
+            }
+            &:after {
+              box-shadow: none;
+              border: none;
+            }
+            &:focus {
+              @extend %focus-shadow;
+              color: $text-dark;
+              &:before {
+                background-image: $dark-arrow;
+              }
+              &:hover {
+                &:before {
+                  background-image: $yellow-arrow;
+                }
+              }
+            }
+            &:hover {
+              color: $delightful-yellow;
+              &:before {
+                background-image: $yellow-arrow;
+              }
+            }
+          }
+          > .module-details__wrapper {
+            color: $text-dark;
+          }
+        }
+        .tabledrag-handle::after {
+          display: inline-block;
+          width: 1.0625rem;
+          height: 1.0625rem;
+          margin-left: -1rem;
+          padding: 0.5rem 1rem;
+          content: '';
+          transition: transform 0.1s ease-in-out 0s;
+          background-image: $drag-icon;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        span.indenter {
+          margin-right: 10px;
+        }
+      }
+    }
+    .region-title {
+      color: $smart-navy;
+    }
+  }
+}
+
+.draggable-table {
+  .draggable {
+    td {
+      padding: 5px;
+    }
+    &.drag-previous{
+      background-color: $ck-grey;
+    }
+    &.drag{
+      background-color: $ck-grey;
+    }
+    .field-plugin-summary,
+    .field-plugin-settings-edit-form {
+      margin: 1rem 1.5rem;
+    }
+    .field-plugin-settings-edit-form {
+      text-align: left;
+      .button:not(.button--primary) {
+        @extend %button-danger;
+      }
+    }
+    &.block-disabled {
+      background: transparent;
+      opacity: 0.5;
+    }
+  }
+  &.tabledrag-disabled {
+    tr {
+      color: $text-dark;
+      background: $white;
+    }
+  }
+}

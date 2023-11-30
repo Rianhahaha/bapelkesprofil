@@ -1,0 +1,32 @@
+name: NTTData admin
+type: theme
+description: "NTTData admin theme"
+alt text: 'Cover of NTTdata Drupal administration theme.'
+core_version_requirement: ^8 || ^9 || ^10
+base theme: claro
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+  fixed_support_items: 'Support items'
+regions_hidden:
+  - sidebar_first
+
+libraries:
+ - nttdata_admin/global-styling
+
+ # Extend entity browser
+libraries-extend:
+  entity_browser/entity_browser:
+    - nttdata_admin/entity-browser-custom
+# Information added by Drupal.org packaging script on 2023-07-17
+version: '1.0.2'
+project: 'nttdata_admin'
+datestamp: 1689591214

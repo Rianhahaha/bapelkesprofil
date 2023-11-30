@@ -1,0 +1,10 @@
+type: module
+core_version_requirement: ^10
+name: 'Pagerer Test'
+description: 'Support module for Pagerer tests.'
+package: Testing
+
+# Information added by Drupal.org packaging script on 2022-09-23
+version: '3.0.0'
+project: 'pagerer'
+datestamp: 1663962588

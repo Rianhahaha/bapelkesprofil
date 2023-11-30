@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Contains media_video_micromodal.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_help().
+ */
+function media_video_micromodal_help($route_name, RouteMatchInterface $route_match): ?string {
+  switch ($route_name) {
+    case 'help.page.media_video_micromodal':
+      $text = file_get_contents(__DIR__ . '/README.md');
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . Html::escape($text) . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function media_video_micromodal_theme(): array {
+  return [
+    'media_video_micromodal' => [
+      'render element' => 'children',
+      'variables' => [
+        'media' => NULL,
+        'view_mode' => NULL,
+        'modal_id' => NULL,
+        'linked_item' => NULL,
+        'iframe_src' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function media_video_micromodal_theme_suggestions_media_video_micromodal(array $variables) {
+
+  $suggestions = [];
+  $hook_original = $variables['theme_hook_original'];
+
+  /** @var \Drupal\media\Entity\Media $media */
+  if ($media = $variables['media'] ?? NULL) {
+    $bundle = $media->bundle();
+    $view_mode = $variables['view_mode'];
+    $entity_type = $media->getEntityTypeId();
+    $suggestions[] = "{$hook_original}__{$entity_type}_{$bundle}";
+    $suggestions[] = "{$hook_original}__{$entity_type}_{$bundle}_{$view_mode}";
+  }
+
+  return $suggestions;
+
+}

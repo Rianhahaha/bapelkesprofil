@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Content header.
+ */
+
+.content-header {
+  background: $nttdata-effect;
+  min-height: 115px;
+  .layout-container {
+    position: relative;
+  }
+}

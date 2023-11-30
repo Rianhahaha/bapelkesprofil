@@ -1,0 +1,72 @@
+body.dark-mode {
+  // TABS
+  .tabs {
+    .tabs__tab {
+      .tabs__link {
+        color: $text-dark;
+        &:not(.is-active) {
+          &:hover {
+            color: $text-dark;
+          }
+        }
+        &.is-active {
+          &:hover {
+            background: $white;
+          }
+          &:before {
+            border-bottom: 0.2rem solid $text-dark;
+          }
+        }
+      }
+    }
+    &.tabs--secondary {
+      .tabs__link {
+        &:not(.is-active) {
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+  .vertical-tabs {
+    .vertical-tabs__menu-item {
+      &.is-selected {
+        color: $text-dark;
+        background-color: $white;
+        * {
+          background-color: $white2;
+          border-color: unset;
+        }
+        .vertical-tabs__menu-link {
+          color: $white;
+          &:before {
+            border-left: 4px solid $primary2;
+          }
+          &:focus {
+            &:after {
+              border: 2px solid $primary2;
+            }
+          }
+          &:hover {
+            color: $primary2;
+          }
+        }
+      }
+      .vertical-tabs__menu-link {
+        * {
+          color: $text-dark;
+        }
+        &:hover {
+          &:before,
+          * {
+            background-color: transparent;
+          }
+        }
+      }
+      &:before {
+        border-top: unset;
+      }
+    }
+  }
+}

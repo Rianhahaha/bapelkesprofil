@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ebt_slick_slider
+label: 'EBT Slick Slider'
+revision: 0
+description: 'Extra Block Type (EBT): Slick Slider'

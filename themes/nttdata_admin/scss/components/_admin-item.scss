@@ -1,0 +1,45 @@
+/**
+ * @file
+ * Admin item.
+ */
+
+.block-system-main-block {
+  > .admin-list {
+    position: relative;
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .admin-item {
+      position: relative;
+      border: none;
+      .admin-item__link {
+        @extend %stretched-link;
+        @extend %nttdata-card-title;
+        position: unset;
+        display: flex;
+        margin-left: 0;
+        &:before {
+          content: none;
+        }
+        &:after {
+          border-top-right-radius: 3rem;
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+
+    }
+  }
+}
+.admin-item__description {
+  color:$text-grey;
+}

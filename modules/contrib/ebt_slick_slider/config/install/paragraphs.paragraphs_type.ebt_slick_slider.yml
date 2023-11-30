@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ebt_slick_slider
+label: 'EBT Slick Slide'
+icon_uuid: null
+icon_default: null
+description: 'Slide for EBT Slick Slider'
+behavior_plugins: {  }

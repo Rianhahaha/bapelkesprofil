@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Theme for readmore_extrafield readmore links.
+ *
+ * Represents the Drupal field structure because by default extra_fields don't
+ * provide any field markup. We single item field markup without label.
+ *
+ * Available variables:
+ * - wrapper_attributes: Attributes for the field wrapper.
+ * - item_attributes: Attributes for the field item.
+ * - link: Link array:
+ *   - title: The link text.
+ *   - url: The link URL. If omitted, the 'title' is shown as a plain text
+ *       item in the links list. If 'href' is supplied, the entire link is passed
+ *       to l() as its $options parameter.
+ *   - attributes: (optional) HTML attributes for the anchor, or for the <span>
+ */
+#}
+{% set classes = [
+  'field-wrapper',
+  'field field--name-extra-field-readmore-extrafield',
+  'field--type-extra-field',
+]%}
+<div {{ wrapper_attributes.addClass(classes) }}>
+  <div {{ item_attributes.addClass('field__item') }}>
+    {{ link(link.title, link.url, link.attributes.addClass('button')) }}
+  </div>
+</div>

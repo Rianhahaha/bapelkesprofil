@@ -1,0 +1,89 @@
+// For Drupal Paragraphs module
+form {
+  // Paragraphs actions
+  .paragraphs-dropdown-actions {
+    .button--small {
+      color: $text-grey;
+      background-color: transparent;
+      &:hover {
+        background: $medium-grey;
+      }
+    }
+  }
+
+  // Paragraphs dropdown
+  .paragraphs-dropbutton-wrapper {
+    .dropbutton-wrapper {
+      margin-right: 0.5rem;
+      &.open {
+        .dropbutton--multiple { //ul
+          position: relative;
+          height: fit-content;
+          max-height: 200px;
+          overflow: auto;
+        }
+        .dropbutton__toggle { //button
+          margin-top: 3px;
+          margin-right: 3px;
+        }
+      }
+      .dropbutton-widget button.dropbutton__toggle { //button
+        height: 2.15rem;
+        margin-top: 0;
+      }
+      .dropbutton--multiple { //ul
+        li:first-child input {
+          @extend %button-primary;
+          z-index: 1;
+        }
+      }
+      .secondary-action {
+        .form-submit { //input
+          &:hover {
+            background-color: $medium-grey;
+          }
+        }
+      }
+    }
+    &.paragraphs-add-wrapper {
+      > input {
+        @extend %button-primary;
+      }
+    }
+  }
+  .paragraphs-tabs-wrapper {
+    .form-actions {
+      align-items: flex-start !important;
+      .paragraphs-dropbutton-wrapper {
+        margin-right: 0.75rem;
+      }
+    }
+  }
+}
+
+// Paragraphs form dialog
+.ui-dialog {
+  .paragraphs-add-dialog {
+    .paragraphs-add-dialog-list {
+      overflow-y: auto;
+      max-height: 50rem;
+      .button--small {
+        color: $white;
+        background: $primary;
+        padding: 5px 15px;
+        text-align: center;
+        &:hover {
+          outline: 2px solid $primary2;
+        }
+      }
+    }
+  }
+}
+
+// Paragraphs form table
+.field--widget-paragraphs {
+  .field-multiple-table {
+    display: table;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,32 @@
+html {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  &.dialog-open {
+    overflow: hidden;
+  }
+  body {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    .page-wrapper {
+      position: relative;
+      flex-grow: 1;
+      background-color: $white;
+      &:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 0;
+        background-image: url('../assets/img/nttdata_pattern_1.png');
+        background-repeat: repeat;
+        background-size: 45px;
+        height: 100px;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.2;
+      }
+    }
+  }
+}

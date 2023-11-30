@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_slick_slider
+    - field.storage.block_content.field_ebt_slick_slider
+    - paragraphs.paragraphs_type.ebt_slick_slider
+  module:
+    - entity_reference_revisions
+id: block_content.ebt_slick_slider.field_ebt_slick_slider
+field_name: field_ebt_slick_slider
+entity_type: block_content
+bundle: ebt_slick_slider
+label: 'Slick Slider'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ebt_slick_slider: ebt_slick_slider
+    negate: 0
+    target_bundles_drag_drop:
+      ebt_accordion:
+        weight: 7
+        enabled: false
+      ebt_carousel:
+        weight: 8
+        enabled: false
+      ebt_slick_slider:
+        weight: 9
+        enabled: true
+      ebt_slideshow:
+        weight: 10
+        enabled: false
+      ebt_tab:
+        weight: 11
+        enabled: false
+      ebt_timeline:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,21 @@
+{
+    "name": "drupal/ebt_slick_slider",
+    "type": "drupal-module",
+    "description": "Extra Block Types (EBT): Slick Slider",
+    "keywords": ["Drupal"],
+    "license": "GPL-2.0-or-later",
+    "homepage": "http://drupal.org/project/ebt_slick_slider",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ebt_slick_slider",
+        "source": "https://git.drupalcode.org/project/ebt_slick_slider"
+    },
+    "conflict": {
+        "drupal/ebt_slick_slider": "*"
+    },
+    "require": {
+        "drupal/ebt_core": "^1.4",
+        "drupal/paragraphs": "^1.0",
+        "levmyshkin/slick": "^1.8.2"
+    }
+}

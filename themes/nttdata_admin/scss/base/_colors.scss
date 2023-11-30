@@ -1,0 +1,114 @@
+:root {
+  --white: #ffffff;
+  --white2: #ffffff;
+  --text-white: #ffffff;
+  --link-water: #f8fafd;
+  --text-dark: #232429;
+  --text-grey: #55565b;
+  --smart-navy: #0f1c50;
+  --border-grey: #919297;
+  --ck-grey: #f8f8f8;
+  --ck-grey2: #f3f4f9;
+  --primary: #6785c1;
+  --primary2: #4c6aa5;
+  --light-grey: #c1c2c7;
+  --medium-grey: #e6e6e6;
+  --strong-blue: #0036b1;
+  --blue-light:#ecf0ff;
+  --dark-arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3e%3cpath fill='%23232429' d='M5.21 1.314L3.79 2.723l5.302 5.353-5.303 5.354 1.422 1.408 6.697-6.762z'/%3e%3c/svg%3e");
+  --yellow-arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3e%3cpath fill='%23e6b600' d='M5.21 1.314L3.79 2.723l5.302 5.353-5.303 5.354 1.422 1.408 6.697-6.762z'/%3e%3c/svg%3e");
+  --drag-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 16 16'%3e%3cpath fill='%23000f33' d='M14.103 5.476a.5.5 0 00-.701-.053.526.526 0 00-.082.713l1.1 1.346H8.512V1.62l1.32 1.113a.501.501 0 00.732-.054.528.528 0 00-.085-.744L8.328.119a.5.5 0 00-.647 0L5.529 1.935a.527.527 0 00-.085.744.504.504 0 00.732.054l1.32-1.113v5.862H1.588L2.68 6.136a.526.526 0 00-.1-.68.5.5 0 00-.675.02L.117 7.67a.525.525 0 000 .66l1.788 2.194a.5.5 0 00.702.053.526.526 0 00.081-.713l-1.1-1.346h5.908v5.862l-1.32-1.113a.501.501 0 00-.698.082.526.526 0 00.051.716l2.152 1.817v-.001a.5.5 0 00.647 0l2.151-1.816a.526.526 0 00.052-.716.501.501 0 00-.699-.082l-1.32 1.113V8.518h5.908l-1.091 1.346a.527.527 0 00.022.776.504.504 0 00.752-.116l1.78-2.194a.527.527 0 000-.66z'/%3e%3c/svg%3e");
+  --grey-arrow-down: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9'%3e%3cpath fill='none' stroke-width='1.5' d='M1 1l6 6 6-6' stroke='%23545560'/%3e%3c/svg%3e");
+  --blue-checkbox: url("data:image/svg+xml,%3csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M3.795 7.096l2.387 2.506 6.023-6.327 1.484 1.56-7.507 7.89L2.31 8.656z' fill='%23fff'/%3e%3c/svg%3e");
+  --white-cross: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3e%3cpath fill='%23ffffff' d='M3.51 13.925c.194.194.512.195.706.001l3.432-3.431c.194-.194.514-.194.708 0l3.432 3.431c.192.194.514.193.707-.001l1.405-1.417c.191-.195.189-.514-.002-.709l-3.397-3.4c-.192-.193-.192-.514-.002-.708l3.401-3.43c.189-.195.189-.515 0-.709l-1.407-1.418c-.195-.195-.513-.195-.707-.001l-3.43 3.431c-.195.194-.516.194-.708 0l-3.432-3.431c-.195-.195-.512-.194-.706.001l-1.407 1.417c-.194.195-.194.515 0 .71l3.403 3.429c.193.195.193.514-.001.708l-3.4 3.399c-.194.195-.195.516-.001.709l1.406 1.419z'/%3e%3c/svg%3e");
+}
+
+// Dark mode color changes.
+body.dark-mode {
+  --white: #293244;
+  --white2: #202734;
+  --text-dark: #ffffff;
+  --text-grey: #919399;
+  --text-lightgrey: #cbceda;
+  --ck-grey: #161616;
+  --ck-grey2: #293244;
+  --smart-navy: #8e9eda;
+  --link-water: #3f4a60;
+  --blue-light:#2a314d;
+  --dark-arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3e%3cpath fill='%23ffffff' d='M5.21 1.314L3.79 2.723l5.302 5.353-5.303 5.354 1.422 1.408 6.697-6.762z'/%3e%3c/svg%3e");
+  --drag-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 16 16'%3e%3cpath fill='%23ffffff' d='M14.103 5.476a.5.5 0 00-.701-.053.526.526 0 00-.082.713l1.1 1.346H8.512V1.62l1.32 1.113a.501.501 0 00.732-.054.528.528 0 00-.085-.744L8.328.119a.5.5 0 00-.647 0L5.529 1.935a.527.527 0 00-.085.744.504.504 0 00.732.054l1.32-1.113v5.862H1.588L2.68 6.136a.526.526 0 00-.1-.68.5.5 0 00-.675.02L.117 7.67a.525.525 0 000 .66l1.788 2.194a.5.5 0 00.702.053.526.526 0 00.081-.713l-1.1-1.346h5.908v5.862l-1.32-1.113a.501.501 0 00-.698.082.526.526 0 00.051.716l2.152 1.817v-.001a.5.5 0 00.647 0l2.151-1.816a.526.526 0 00.052-.716.501.501 0 00-.699-.082l-1.32 1.113V8.518h5.908l-1.091 1.346a.527.527 0 00.022.776.504.504 0 00.752-.116l1.78-2.194a.527.527 0 000-.66z'/%3e%3c/svg%3e");
+}
+
+
+// Dark mode color changes.
+body.high-ctr {
+  --white: #1b1b1b;
+  --link-water: #1b1b1b;
+  @include filter(invert(100%) contrast(100%) brightness(100%) saturate(80%));
+  img {
+    @include filter(invert(100%) contrast(100%) brightness(100%) saturate(100%));
+  }
+}
+
+// Primary colors
+$primary: var(--primary);
+$primary2: var(--primary2);
+$white: var(--white);
+$white2: var(--white2);
+$blue-light: var(--blue-light);
+$text-white: var(--text-white);
+$text-dark: var(--text-dark);
+$text-grey: var(--text-grey);
+$text-lightgrey: var(--text-lightgrey);
+
+// Secondary colors
+$cornflower-blue: #cfd8fc;
+$link-water: var(--link-water);
+$smart-navy: var(--smart-navy);
+$u-smart-navy: #0f1c50;
+$black-pearl: rgb(7, 14, 39);
+$black-pearl-background: rgb(7, 14, 39, 0.15);
+$delightful-yellow: #e6b600;
+$delightful-yellow-background: rgb(230, 182, 0, 0.2);
+$dark-yellow: #cfad00;
+$gold: #fad100;
+$brown: #af9e54;
+$dynamic-red:#bc4328;
+$dynamic-red-background: rgb(188, 67, 40, 0.2);
+$eletric-red: #dc2323;
+$grey-arrow-down: var(--grey-arrow-down);
+
+//Support colors
+$green: #83b254;
+$purple: #aa3c80;
+$gray: #404041;
+$bg-dark: #232429;
+$black: rgb(15, 15, 15);
+$border-grey: var(--border-grey);
+$ck-grey: var(--ck-grey);
+$ck-grey2: var(--ck-grey2);
+$medium-grey: var(--medium-grey);
+$light-grey: var(--light-grey);
+$strong-blue: var(--strong-blue);
+$beautiful-green: #26a769;
+$beautiful-green-background: rgb(38, 167, 105, 0.2);
+
+
+// Effects
+$nttdata-effect: linear-gradient(171deg, $bg-dark 0%, $black-pearl 78.66%);
+$nttdata-blue-effect: linear-gradient(160deg, $u-smart-navy 40%, $black-pearl 80%);
+$nttdata-yellow-effect: linear-gradient(160deg, $gold 0%, $delightful-yellow 20%, $dark-yellow 80%);
+$nttdata-yellow-effect-hover: linear-gradient(160deg, $delightful-yellow 100%, $gold 100%);
+
+// Icons
+$dark-arrow: var(--dark-arrow);
+$yellow-arrow: var(--yellow-arrow);
+$drag-icon: var(--drag-icon);
+$grey-arrow-down: var(--grey-arrow-down);
+$blue-checkbox: var(--blue-checkbox);
+$white-cross: var(--white-cross);
+
+// Shadows
+$shadow-15: rgba(0, 0, 0, 0.15); // Shadow 15%
+$shadow-25: rgba(0, 0, 0, 0.25); // Shadow 25%
+$shadow-30: rgba(0, 0, 0, 0.3); // Shadow 30%

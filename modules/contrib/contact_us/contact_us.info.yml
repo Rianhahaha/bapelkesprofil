@@ -1,0 +1,12 @@
+name: Contact Us
+type: module
+description: 'A simple contact us form for a personal or a corporate website'
+package: contact
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+configure: contact_us.admin_settings_form
+
+# Information added by Drupal.org packaging script on 2022-10-14
+version: '8.x-2.2'
+project: 'contact_us'
+datestamp: 1665740563

@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Module readmore_extrafield functionality implementations.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\Entity\NodeType;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * @file
+ * This module adds a "Read more" extrafield to all node displays.
+ */
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function readmore_extrafield_entity_extra_field_info() {
+  $extra = [];
+  foreach (NodeType::loadMultiple() as $bundle) {
+    $extra['node'][$bundle->Id()]['display']['extra_field_readmore_extrafield'] = [
+      'label' => t('Read more'),
+      'description' => t('Link to the entity'),
+      'weight' => 100,
+    ];
+  }
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function readmore_extrafield_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('extra_field_readmore_extrafield')) {
+    $build['extra_field_readmore_extrafield'] = [
+      '#theme' => 'readmore_extrafield',
+      '#link' => [
+        'title' => t('Read more'),
+        'url' => Url::fromRoute('entity.node.canonical', [
+          'node' => $entity->id(),
+        ]),
+        'attributes' => new Attribute(['class' => ['read-more']]),
+      ],
+      '#item_attributes' => new Attribute(),
+      '#wrapper_attributes' => new Attribute([
+        'class' => [
+          'readmore-extrafield',
+        ],
+      ]),
+      '#view_mode' => $view_mode,
+      '#entity' => $entity,
+    ];
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function readmore_extrafield_theme($existing, $type, $theme, $path) {
+  return [
+    'readmore_extrafield' => [
+      'variables' => [
+        'link' => [
+          'title' => t('Read more'),
+          'link' => NULL,
+          'attributes' => [],
+        ],
+        'item_attributes' => [],
+        'wrapper_attributes' => [],
+        'view_mode' => NULL,
+        'entity' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function readmore_extrafield_theme_suggestions_readmore_extrafield(array $variables) {
+  $entity = $variables['entity'];
+  $sanitized_view_mode = strtr($variables['view_mode'], '.', '_');
+
+  $suggestions = [];
+  $suggestions[] = 'readmore_extrafield__' . $sanitized_view_mode;
+  $suggestions[] = 'readmore_extrafield__' . $entity->bundle();
+  $suggestions[] = 'readmore_extrafield__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'readmore_extrafield__' . $entity->id();
+  $suggestions[] = 'readmore_extrafield__' . $entity->id() . '__' . $sanitized_view_mode;
+
+  return $suggestions;
+}

@@ -1,0 +1,28 @@
+body.dark-mode {
+  // PAGER
+  .pager {
+    .pager__item {
+      background: $link-water;
+      a {
+        color: $text-dark;
+        background: $link-water;
+        &:before,
+        &:after {
+          @extend %filter-white;
+        }
+        &:hover {
+          border-color: $primary2;
+          box-shadow: inset 0px 0px 3px 3px $primary2;
+        }
+      }
+      &--active {
+        a {
+          background: $primary;
+        }
+      }
+      &.pager__item--mini {
+        border-radius: 50%;
+      }
+    }
+  }
+}

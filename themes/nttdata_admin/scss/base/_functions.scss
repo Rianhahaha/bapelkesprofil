@@ -1,0 +1,50 @@
+/**
+ * @file
+ * Functions.
+ */
+
+%stretched-link {
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    pointer-events: auto;
+    content: "";
+  }
+}
+
+%focus-shadow {
+  outline: none;
+  box-shadow: $nttdata-box-shadow;
+  &:hover {
+    box-shadow: $nttdata-box-shadow;
+  }
+}
+
+%tab-active-state {
+  cursor: default;
+  color: var(--smart-navy);
+  &:hover {
+    color: var(--smart-navy);
+  }
+}
+
+%tab {
+  color: $primary2;
+  background-color: $white;
+  &:hover {
+    background-color: $blue-light;
+  }
+}
+
+// Change icon colors
+%filter-white {
+  filter: brightness(0) invert(1);
+}
+
+%filter-black {
+  filter: brightness(0) invert(0);
+}

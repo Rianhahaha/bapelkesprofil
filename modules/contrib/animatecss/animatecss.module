@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Drupal`s integration with Animate.css library.
+ *
+ * Animate.css is a library of ready-to-use, cross-browser animations
+ * for use in your web projects. Great for emphasis, home pages, sliders,
+ * and attention-guiding hints.
+ *
+ * Github:  https://github.com/animate-css/animate.css
+ * Website: https://animate.style/
+ * license: MIT licensed
+ *
+ * Copyright (C) 2021-2023 Daniel Eden
+ */
+
+use Drupal\Core\Installer\InstallerKernel;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function animatecss_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.animatecss':
+      $output  = '<h3 class="animate__animated animate__bounce">' . t('About') . '</h3>';
+      $output .= '<p class="animate__animated animate__fadeInUp animate__delay-1s">' . t('The AnimateCSS is a module that aims to integrate Integrates <a href=":animate_library">Animate.css</a> library with Drupal. Animate.css is a library of ready-to-use, cross-browser animations for use in your web projects. Great for emphasis, home pages, sliders, and attention-guiding hints. AnimateCSS module allows you to quickly attach Animate.css library in your page.', [':animate_library' => 'https://animate.style/']) . '</p>';
+      $output .= '<h3 class="animate__animated animate__zoomIn animate__delay-2s">' . t('Uses') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dt class="animate__animated animate__flipInX animate__delay-3s">' . t('Basic usage') . '</dt>';
+      $output .= '<dd class="animate__animated animate__slideInLeft animate__delay-4s"><p>' . t('Add the class animate__animated to an element, along with any of the animation names (do not forget the animate__ prefix!)') . '</p>';
+      $output .= '<pre><code>';
+      $output .= '&lt;h1 class="animate__animated animate__bounce"&gt;An animated element&lt;/h1&gt;' . "\n";
+      $output .= '</code></pre></dd>';
+      $output .= '<dt class="animate__animated animate__flipInX animate__delay-3s">' . t('Usage with Javascript') . '</dt>';
+      $output .= '<dd class="animate__animated animate__slideInRight animate__delay-4s"><p>' . t('You can do a whole bunch of other stuff with animate.css when you combine it with Javascript.') . '</p>';
+      $output .= '<pre>';
+      $output .= "const element = document.querySelector('.my-element');" . "\n";
+      $output .= "element.classList.add('animate__animated', 'animate__bounceOutLeft');";
+      $output .= '</pre></dd>';
+      $output .= '</dl>';
+      return $output;
+  }
+}
+
+/**
+ * Check to make sure that Animate.css library is installed.
+ *
+ * @return bool
+ *   Flag indicating if the library is properly installed.
+ */
+function animatecss_check_installed() {
+  // Throw error if Animate.css library file not found.
+  $animate_library = \Drupal::service('library.discovery')->getLibraryByName('animatecss', 'animate.css');
+  return file_exists(DRUPAL_ROOT . '/' . $animate_library['css'][0]['data']);
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function animatecss_page_attachments(array &$attachments) {
+  // Don't add the Library during installation.
+  if (InstallerKernel::installationAttempted()) {
+    return;
+  }
+
+  // Check first AnimateCSS UI module in not installed and library not exists.
+  $moduleHandler = \Drupal::service('module_handler');
+  if (!$moduleHandler->moduleExists('animatecss_ui') && animatecss_check_installed()) {
+    $attachments['#attached']['library'][] = 'animatecss/animate.css';
+  }
+}

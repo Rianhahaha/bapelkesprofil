@@ -1,0 +1,10 @@
+nivoslider:
+  js:
+    js/jquery.nivo.slider.js: {},
+    js/nivoslider_custom.js: {}
+  css:
+    base:
+      css/nivo-slider.css: {}
+  dependencies:
+    - core/jquery    
+      

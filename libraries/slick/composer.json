@@ -1,0 +1,7 @@
+{
+    "name": "levmyshkin/slick",
+    "description": "Fork from kenwheeler/tiny-slider. The last carousel you'll ever need.",
+    "type": "drupal-library",
+    "license": "MIT",
+    "require": {}
+}

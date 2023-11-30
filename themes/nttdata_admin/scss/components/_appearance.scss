@@ -1,0 +1,15 @@
+/**
+ * @file
+ * Appearance.
+ */
+
+.system-themes-list {
+  .card {
+    .card__image {
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

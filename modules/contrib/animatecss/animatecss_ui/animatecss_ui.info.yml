@@ -1,0 +1,13 @@
+name: 'AnimateCSS UI'
+type: module
+description: 'Animate.css library configuration UI.'
+core_version_requirement: ^8.8 || ^9 || ^10
+package: User interface
+configure: animatecss.admin
+dependencies:
+  - animatecss:animatecss
+
+# Information added by Drupal.org packaging script on 2023-09-23
+version: '1.0.0'
+project: 'animatecss'
+datestamp: 1695495341

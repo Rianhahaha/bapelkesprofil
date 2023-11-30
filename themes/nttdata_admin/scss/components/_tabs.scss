@@ -1,0 +1,95 @@
+/**
+ * @file
+ * Tabs.
+ */
+
+.tabs--primary {
+  .tabs__tab {
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $primary;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0;
+      width: 100%;
+      z-index: 0;
+      border-radius: 5px 5px 0 0;
+      @include transition(0.3s all);
+    }
+    .tabs__link {
+      color: $white;
+      z-index: 1;
+      min-height: 2.8rem;
+      @include transition(0.3s all);
+      &.is-active {
+        background-color: $white;
+        color: $smart-navy;
+        cursor: default;
+      }
+      &:before {
+        display: none;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        z-index: 1;
+        border-right: none;
+        border-bottom: 4px solid $black-pearl;
+        border-left: none;
+      }
+      &:not(.is-active) {
+        &:hover {
+          background-color: transparent;
+          color: $white;
+          &::after {
+            height: 100%;
+          }
+        }
+      }
+    }
+    &:hover {
+      &::after {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.vertical-tabs {
+  &__menu-item {
+    &.is-selected {
+      .vertical-tabs__menu-item-title {
+        color: $primary2;
+      }
+      .vertical-tabs__menu-link {
+        &:before {
+          border-left: 4px solid $primary2;
+        }
+        &:focus {
+          &:after {
+            border: 2px solid $primary2;
+          }
+        }
+        &:hover {
+          color: $primary2;
+        }
+      }
+    }
+    .vertical-tabs__menu-link {
+      margin-right: 1px;
+      &:hover {
+        color: $primary2;
+      }
+    }
+  }
+  &__items {
+    border: 2px solid $white2;
+  }
+}

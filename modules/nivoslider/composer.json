@@ -1,0 +1,9 @@
+{
+  "name": "drupal/nivoslider",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "description": "Provide formatter for image slider",
+  "require": {
+      "drupal/core": "^9 || ^10"
+  }
+}

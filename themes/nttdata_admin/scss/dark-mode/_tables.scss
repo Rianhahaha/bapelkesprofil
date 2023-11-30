@@ -1,0 +1,79 @@
+body.dark-mode {
+  table {
+    &.sticky-header {
+      background-color: transparent;
+    }
+    .sortable-heading {
+      a {
+        &:hover {
+          color: $white;
+          &:before {
+            border-bottom: 0.1875rem solid $white;
+          }
+          &:after {
+            filter: unset;
+          }
+        }
+        .tablesort {
+          @extend %filter-white;
+        }
+        &:after {
+          @extend %filter-white;
+        }
+      }
+      &.is-active a {
+        color: $text-dark;
+        &:before {
+          border-bottom: 0.1875rem solid $text-dark;
+        }
+        .tablesort {
+          @extend %filter-white;
+        }
+      }
+    }
+    tr {
+      td {
+        a {
+          color: $delightful-yellow;
+        }
+      }
+      &.selected {
+        td {
+          background-color: $black-pearl;
+        }
+      }
+      &.draggable {
+        color: $text-lightgrey;
+        &.field-plugin-settings-editing,
+        &:focus {
+          background: $white2;
+        }
+      }
+    }
+    .region-title {
+      color: $text-dark;
+    }
+    .revision-current {
+      background-color: unset;
+    }
+  }
+  .tabledrag-toggle-weight-wrapper {
+    button {
+      .action-link {
+        background: $white;
+        color: $text-dark;
+        &:before {
+          @extend %filter-white;
+        }
+        &:hover {
+          background: $white2;
+        }
+      }
+    }
+  }
+  table.responsive-enabled.sticky-enabled {
+    td > a {
+      color: $delightful-yellow;
+    }
+  }
+}

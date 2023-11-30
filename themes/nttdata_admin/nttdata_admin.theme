@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * Returns the paths where we don't want admin list items to have card styling
+ */
+function get_paths() {
+  return [
+    '/admin/index',
+    '/admin/structure/webform/config'
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function nttdata_admin_theme_suggestions_table_alter(array &$suggestions, array $variables, $hook) {
+  // Add twig name suggestions based on page title for HOOK -> table
+  if ($route = \Drupal::routeMatch()->getCurrentRouteMatch()->getRouteObject()) {
+    $title = $route->getDefault('_title');
+    // Convert title to lowercase and replace spaces with dashes
+    $titleReplaced = str_replace(' ', '_', strtolower($title));
+    $suggestions[] = 'table__'.$titleReplaced;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function nttdata_admin_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if (strpos($hook, 'admin_block_content') !== FALSE) {
+    if ($current_path = \Drupal::service('path.current')->getPath()) {
+      // Add twig template only for intended pages
+      if (!in_array($current_path, get_paths())) {
+        $suggestions[] = $hook . '__cards';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function nttdata_admin_form_alter(&$form, $form_state, $form_id) {
+  if (strpos($form_id, 'views_form') !== FALSE) {
+    if (isset($form['header'])) {
+      $form['header']['#attributes']['class'][] = 'is-fixed-to-bottom';
+      $bulk_form = current(preg_grep('/_bulk_form/', array_keys($form['header'])));
+      if (isset($form['header'][$bulk_form])) {
+        // Bulk forms: update action & actions to small variants.
+        $form['header'][$bulk_form]['action']['#attributes']['class'][] = 'form-element--type-select--small';
+        $form['header'][$bulk_form]['actions']['submit']['#attributes']['class'][] = 'button--small';
+
+        // Bulk forms: change action submit text
+        $form['header'][$bulk_form]['actions']['submit']['#attributes']['value'][] = t('Apply');
+
+        // Bulk forms: remove double entry of submit button.
+        unset($form['actions']);
+      }
+    }
+  }
+  if (strpos($form_id, 'webform_bulk_form') !== FALSE) {
+    if (isset($form['operations'])) {
+      // Bulk forms: update action & actions to small variants.
+      $form['operations']['action']['#attributes']['class'][] = 'form-element--type-select--small';
+      $form['operations']['apply_above']['#attributes']['class'][] = 'button--small';
+      // Bulk forms: change action submit text
+      $form['operations']['apply_above']['#attributes']['value'][] = t('Apply');
+      // Bulk forms: remove double entry of submit button.
+      unset($form['apply_below']);
+    }
+  }
+}

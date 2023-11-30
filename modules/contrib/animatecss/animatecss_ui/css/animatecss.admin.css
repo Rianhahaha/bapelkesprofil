@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:700');
+/*
+ * Animate.css preview!
+ */
+.animate__preview {
+  padding: 30px 15px;
+  background-image: url('../img/preview-background.png');
+}
+.animate__preview p {
+  display: block;
+  font-family: 'Oswald', serif;
+  font-weight: 700;
+  font-size: 36px;
+  margin: auto;
+  width: 450px;
+  min-height: 120px;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: normal;
+  vertical-align: middle;
+}

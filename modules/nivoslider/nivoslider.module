@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * @This module is designed to develop custom formatter for image slider
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nivoslider_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.nivoslider':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides formatter for slider.') . '</p>';
+	  $output .= '<p>'.  t('For more information related to module please visit <a href="https://www.drupal.org/project/nivoslider" target="_blank">project page</a>') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+
+

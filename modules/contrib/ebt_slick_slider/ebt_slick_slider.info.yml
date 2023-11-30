@@ -1,0 +1,14 @@
+type: module
+name: 'Extra Block Types (EBT): Slick Slider'
+description: 'Adds Slick Slider block type.'
+core_version_requirement: ^9.3 || ^10
+package: 'Extra Block Types'
+
+dependencies:
+  - ebt_core:ebt_core
+  - paragraphs:paragraphs
+
+# Information added by Drupal.org packaging script on 2022-10-11
+version: '1.4.0'
+project: 'ebt_slick_slider'
+datestamp: 1665500008

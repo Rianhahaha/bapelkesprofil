@@ -1,0 +1,78 @@
+/**
+ * @file
+ * Content.
+ */
+
+.layout-region--node-main,
+.layout-region--node-footer {
+  .layout-region__content {
+    max-width: 100%;
+  }
+}
+
+.horizontal-tabs,
+.vertical-tabs {
+  .horizontal-tabs-list {
+    background: $nttdata-effect;
+    color: $primary;
+    .horizontal-tab-button {
+      text-align: center;
+      &.selected {
+        a {
+          @extend %tab-active-state;
+        }
+      }
+      &:not(.selected) {
+        a {
+          @extend %tab;
+        }
+      }
+    }
+  }
+  .vertical-tabs__menu {
+    background: $nttdata-effect;
+    color: $primary;
+    .vertical-tabs__menu-item {
+      a {
+        color: $text-dark;
+        &:focus {
+          border: none;
+          box-shadow: none;
+          &:after,
+          &::before {
+            border: none;
+          }
+        }
+        &::before {
+          border: 1px solid $ck-grey2;
+        }
+      }
+      &.is-selected {
+        a {
+          border-right: none;
+          @extend %tab-active-state;
+          &:hover {
+            outline: none;
+            background: $white;
+          }
+          &:focus {
+            @extend %focus-shadow;
+          }
+        }
+      }
+      &:not(.is-selected) {
+        a {
+          @extend %tab;
+        }
+      }
+    }
+  }
+  .field-group-tab {
+    .claro-details__wrapper--vertical-tabs-item {
+      background-color: $white;
+    }
+  }
+  .vertical-tabs__panes {
+    background: $white2;
+  }
+}

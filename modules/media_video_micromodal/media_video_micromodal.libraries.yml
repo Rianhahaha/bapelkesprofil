@@ -1,0 +1,22 @@
+micromodal:
+  remote: https://github.com/Ghosh/micromodal
+  version: 0.4.10
+  license:
+    name: MIT
+    url: https://github.com/ghosh/Micromodal/blob/master/LICENSE.md
+    gpl-compatible: true
+  js:
+    https://unpkg.com/micromodal@0.4.10/dist/micromodal.min.js: { type: external, minified: true }
+
+micromodal_libraries:
+  js:
+    js/micromodal-init.js: {}
+  dependencies:
+    - core/drupal
+  css:
+    theme:
+      css/micromodal.css: {}
+
+caption_swap:
+  js:
+    js/caption-swap.js: {}

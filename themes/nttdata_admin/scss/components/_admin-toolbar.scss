@@ -1,0 +1,91 @@
+/**
+ * @file
+ * Admin toolbar.
+ */
+
+ #toolbar-administration #toolbar-bar #admin-toolbar-search-tab {
+  input {
+    color: $black-pearl;
+  }
+}
+
+body.dark-mode {
+  #toolbar-administration {
+    #toolbar-bar {
+      * {
+        color: $text-white;
+        &:before {
+          @extend %filter-white;
+        }
+      }
+      .toolbar-tab {
+        background-color: $black;
+        border-left: 2px solid $blue-light;
+        border-right: 2px solid $blue-light;
+        a {
+          &.is-active {
+            background: $white;
+            &:before {
+              @extend %filter-white;
+            }
+          }
+        }
+      }
+      .toolbar-toggle-orientation,
+      .toolbar-tray-horizontal {
+        border-left: 2px solid $blue-light;
+        border-right: 2px solid $blue-light;
+        background-color: $black;
+        .toolbar-lining {
+          height: 100%;
+          button {
+          background-color: $primary;
+          min-height: 35px;
+          height: 100%;
+          &:before {
+            filter: invert(1) brightness(1);
+          }
+          &:hover,
+          &:focus {
+            &:before {
+              filter: invert(0.25) brightness(0.25);
+            }
+          }
+        }
+      }
+      }
+      #admin-toolbar-search-tab {
+        border: none;
+      }
+    }
+    #toolbar-item-administration-tray {
+      background-color: $ck-grey;
+      border-top: 2px solid $blue-light;
+      border-bottom: 2px solid $blue-light;
+      .toolbar-menu {
+        li {
+          background-color: $black;
+          border: 1px solid $blue-light;
+          &.open {
+            > ul {
+              border-top: 1px solid $text-grey;
+            }
+          }
+          button {
+            &:focus,
+            &:active {
+              background-color: transparent;
+              border: 2px solid $primary;
+            }
+          }
+        }
+      }
+      a {
+        &:focus {
+          background: transparent;
+          @extend %focus-shadow;
+        }
+      }
+    }
+  }
+}

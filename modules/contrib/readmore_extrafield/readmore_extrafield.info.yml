@@ -1,0 +1,12 @@
+name: 'Read More Extra Field'
+description: 'Render the Read More link as an extra field'
+type: module
+core_version_requirement: ^8.9 || ^9 || ^10
+
+dependencies:
+  - drupal:field
+
+# Information added by Drupal.org packaging script on 2022-12-09
+version: '8.x-1.4'
+project: 'readmore_extrafield'
+datestamp: 1670582446

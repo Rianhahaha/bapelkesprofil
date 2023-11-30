@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_us_phone
+    - node.type.contact_us_form
+id: node.contact_us_form.field_contact_us_phone
+field_name: field_contact_us_phone
+entity_type: node
+bundle: contact_us_form
+label: Phone
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

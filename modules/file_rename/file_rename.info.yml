@@ -1,0 +1,12 @@
+name: File Rename
+description: Adds a possibility to rename managed files.
+core_version_requirement: ^8.7.7 || ^9 || ^10
+type: module
+package: File
+dependencies:
+  - drupal:file
+
+# Information added by Drupal.org packaging script on 2023-05-03
+version: '1.0.1'
+project: 'file_rename'
+datestamp: 1683108942

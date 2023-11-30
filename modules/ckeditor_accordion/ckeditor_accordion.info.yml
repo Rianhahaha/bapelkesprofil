@@ -1,0 +1,11 @@
+name: CKEditor Accordion
+type: module
+description: "Accordion plugin for CKEditor 5"
+package: CKEditor
+core_version_requirement: ^9.4 || ^10
+configure: ckeditor_accordion.settings
+
+# Information added by Drupal.org packaging script on 2023-02-14
+version: '2.0.3'
+project: 'ckeditor_accordion'
+datestamp: 1676352728

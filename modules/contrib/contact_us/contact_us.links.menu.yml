@@ -1,0 +1,6 @@
+contact_us.admin_settings_form:  
+  title: 'Contact Us Configuration'  
+  route_name: contact_us.admin_settings_form  
+  description: 'Contact Us Configuration'  
+  parent: system.admin_config_system  
+  weight: 99

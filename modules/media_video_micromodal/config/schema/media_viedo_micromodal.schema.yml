@@ -1,0 +1,16 @@
+field.formatter.settings.micromodal_field_formatter:
+  type: field.formatter.settings.image
+  label: 'Media thumbnail field display format settings'
+  mapping:
+    string_classes:
+      type: string
+      label: 'Additional Classes'
+    link_text:
+      type: string
+      label: 'Link text'
+    thumbnail_image_style:
+      type: string
+      label: 'Thumbnail Image Style'
+    caption_swap:
+      type: string
+      label: 'Caption Swap'

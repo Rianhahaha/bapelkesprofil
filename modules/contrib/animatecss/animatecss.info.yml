@@ -1,0 +1,10 @@
+name: 'AnimateCSS'
+type: module
+description: 'Integrates Animate.css, is a library of ready-to-use, cross-browser animations for use in your web projects.'
+core_version_requirement: ^8.8 || ^9 || ^10
+package: User interface
+
+# Information added by Drupal.org packaging script on 2023-09-23
+version: '1.0.0'
+project: 'animatecss'
+datestamp: 1695495341
