@@ -26,7 +26,7 @@
   --bg2: url("../images/bg.jpg");
   --bg-elapor: url("../images/elapor.jpg");
   --bg-bumper: url("../images/BapelkesBumper.jpg");
-  --bg-video: url("../images/videobg.mp4");
+  --bg-wayang: url("../images/wayang_bg.png");
   --white50: #ffffffcc;
   --struktur-line:#919296;
 
@@ -3895,7 +3895,7 @@ border-right: var(--color-primary) solid 6px; */
   box-shadow: 22px 23px 23px 2px rgba(0, 0, 0, 0.22);
   filter: none;
 }
-.about_us-img-2 {
+.about_us-img-2, .wayang {
   border-radius: 1rem;
   transition: all 0.5s;
   margin-top: 3rem;
@@ -4428,6 +4428,24 @@ color: var(--bold-color);
   flex: 1;
 }
 
+.wayang{
+  position: relative;
+}
+
+
+.wayang::before {
+  background: #fbfbfb;
+  content: " ";
+  width: 17rem;
+  height: 17rem;
+  border-radius: 25rem;
+  background-color: var(--color-primary-trans);
+  position: absolute;
+  right: -4%;
+  bottom: 20%;
+  animation: slider 6s linear infinite alternate;
+
+}
 
 /* #sidebar-left fieldset .form-item{
   border:solid;

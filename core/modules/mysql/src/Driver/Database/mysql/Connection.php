@@ -211,10 +211,12 @@ class Connection extends DatabaseConnection implements SupportsTemporaryTablesIn
     // 'utf8mb4_general_ci' (MySQL 5) or 'utf8mb4_0900_ai_ci' (MySQL 8) for
     // utf8mb4.
     if (!empty($connection_options['collation'])) {
-      $pdo->exec('SET NAMES ' . $charset . ' COLLATE ' . $connection_options['collation']);
+      $stmt = $pdo->prepare('SET NAMES ? COLLATE ?');
+      $stmt->execute([$charset, $connection_options['collation']]);
     }
     else {
-      $pdo->exec('SET NAMES ' . $charset);
+      $stmt = $pdo->prepare('SET NAMES ?');
+      $stmt->execute([$charset]);
     }
 
     // Set MySQL init_commands if not already defined.  Default Drupal's MySQL
